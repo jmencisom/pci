@@ -23,27 +23,22 @@
  */
 
 /* 
- * File:   main.cpp
+ * File:   factorial.cpp
  * Author: Javier Enciso and Jesús Carvajal
  *
- * Created on 18 de junio de 2018, 08:24 AM
+ * Created on 19 de junio de 2018, 10:04 AM
  */
 
-#include <cstdlib>
 #include <iostream>
-#include "factorial.h"
-
 using namespace std;
 
-/*
- * 
- */
-int main(int argc, char** argv) {
-    
-    int n, resultado;
-    cout << "Digite un entero para calcular el factorial " << endl;
-    cin >> n;
-    resultado = factorial(n);
-    cout << "El factorial de " << n << " es " << resultado;
-    return 0;
+int factorial(int n)
+{
+    int resultado = 1;
+
+    for(int i = 1; i <=n; ++i)
+    {
+        resultado *= i;
+    }
+    return resultado;
 }

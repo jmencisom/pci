@@ -23,27 +23,51 @@
  */
 
 /* 
- * File:   main.cpp
+ * File:   factorial_test.cpp
  * Author: Javier Enciso and Jesús Carvajal
  *
- * Created on 18 de junio de 2018, 08:24 AM
+ * Created on 19 de junio de 2018, 10:26 AM
  */
 
-#include <cstdlib>
+#include <stdlib.h>
 #include <iostream>
+
 #include "factorial.h"
 
 using namespace std;
 
 /*
- * 
+ * Simple C++ Test Suite
  */
-int main(int argc, char** argv) {
-    
-    int n, resultado;
-    cout << "Digite un entero para calcular el factorial " << endl;
-    cin >> n;
-    resultado = factorial(n);
-    cout << "El factorial de " << n << " es " << resultado;
-    return 0;
+
+int factorial(int n);
+
+void test1() {
+    cout << "factorial_test test 1" << endl;
 }
+
+void test2() {
+    cout << "factorial_test test 2" << endl;
+    int resultado = factorial(5);
+    if (resultado != 120){
+        cout << "%TEST_FAILED% time=0 testname=test2 (factorial_test) message=error message sample" << endl;
+    }
+}
+
+int main(int argc, char** argv) {
+    cout << "%SUITE_STARTING% factorial_test" << endl;
+    cout << "%SUITE_STARTED%" << endl;
+
+    cout << "%TEST_STARTED% test1 (factorial_test)" << endl;
+    test1();
+    cout << "%TEST_FINISHED% time=0 test1 (factorial_test)" << endl;
+
+    cout << "%TEST_STARTED% test2 (factorial_test)\n" << endl;
+    test2();
+    cout << "%TEST_FINISHED% time=0 test2 (factorial_test)" << endl;
+
+    cout << "%SUITE_FINISHED% time=0" << endl;
+
+    return (EXIT_SUCCESS);
+}
+
